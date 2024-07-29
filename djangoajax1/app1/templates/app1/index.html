@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Digital Time</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function fetchTime() {
+            $.ajax({
+                url: '/time/json',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $('#time').text(data.param1);
+                }
+            });
+        }
+        $(document).ready(function() {
+            fetchTime();  // Fetch time on page load
+            setInterval(fetchTime, 1000);  // Fetch time every second
+        });
+    </script>
+</head>
+<body>
+    <h1>Current Time: <span id="time"></span></h1>
+</body>
+</html>
