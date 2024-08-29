@@ -14,8 +14,6 @@ def home2(request):
             in1=data.get('input1')
             result=names(in1)
             return JsonResponse({'param1':result})
-    else:
-        return JsonResponse()
 def names(search1):
     list1=['Shubman','Abhishek','Ruturaj','Sanju','Shivam','Riyan','Rinku','Ravi','Sunder','Mukesh','Avesh']
     temp=list(filter(lambda i:i.startswith(search1),list1))
